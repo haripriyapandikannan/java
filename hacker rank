@@ -1,0 +1,362 @@
+YM1020:
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int totalStudents = scanner.nextInt();
+        int numGroups = scanner.nextInt();
+        int studentsPerGroup = totalStudents / numGroups;
+        int remainingStudents = totalStudents % numGroups;
+        System.out.println("The number of students in each team is " + studentsPerGroup + " and left out is " + remainingStudents);
+    }
+}
+
+
+YM1025:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String color = sc.nextLine();
+        if (color.equals("BLUE")) {
+         System.out.println("The Chromatic Horizon whispers: It is Dawn");
+        } 
+        else if (color.equals("RED")) {
+            System.out.println("The Chromatic Horizon reveals: It is Dusk");
+        } 
+        else {
+            System.out.println("The Chromatic Riddle unfolds: Invalid Input");
+        }
+        sc.close();
+    }
+}
+
+
+YM1027:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt(); 
+        int y = sc.nextInt(); 
+        double ti = sc.nextDouble();
+        double tj = sc.nextDouble(); 
+        if (tj >= ti) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        double startTimeHours = convertToHours(ti);
+        double currentTimeHours = convertToHours(tj);
+        double availableTime = startTimeHours - currentTimeHours; 
+        double travelTime = (double) x / y; 
+        if (travelTime <= availableTime) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+ private static double convertToHours(double time) {
+        int hours = (int) time;
+        int minutes = (int) Math.round((time - hours) * 100);
+        return hours + minutes / 60.0;
+    }
+}
+
+
+YM1029:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        String[] belts = new String[3];
+        boolean allEngaged = true;
+        boolean invalid = false;
+           for (int i = 0; i < 3; i++) {
+            belts[i] = sc.nextLine().trim();
+            if (!belts[i].equals("engaged") && !belts[i].equals("disengaged")) {
+                invalid = true;
+            }
+            if (belts[i].equals("disengaged")) {
+                allEngaged = false;
+            }
+        }
+        if (invalid) {
+            System.out.println("Invalid Input");
+        } else if (allEngaged) {
+            System.out.println("Initiating Warp Drive!");
+        } else {
+            System.out.println("Hold On! Some Belts are Adrift.");
+        }
+        sc.close();
+    }
+}
+
+
+YM1O31:
+import java.io.*;
+import java.util.*;
+public class Solution {
+       public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] tireNames = {"Front-left", "Rear-left", "Rear-right", "Front-right"};
+        double[] pressures = new double[4];
+        for (int i = 0; i < 4; i++) {
+            pressures[i] = sc.nextDouble();
+        }
+        for (int i = 0; i < 4; i++) {
+            if (pressures[i] < 33) {
+                System.out.println(tireNames[i] + " : Inflate");
+            } else if (pressures[i] > 33) {
+                System.out.println(tireNames[i] + " : Deflate");
+            } else {
+                System.out.println(tireNames[i] + " : Untouched");
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+YM1033:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int w = sc.nextInt();
+
+        if (w < 1 || w > 100) {
+            System.out.println("Invalid Input");
+        } 
+        else if (w > 2 && w % 2 == 0) {
+            int part = w / 2;
+            System.out.println("YES");
+            System.out.println(part + " " + part);
+        } 
+        else {
+            System.out.println("NO");
+        }
+       sc.close();
+    }
+}
+
+
+YM1019:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int sum=0;
+        while(num>0)
+        {
+            int temp=num%10;
+            sum=sum+temp;
+            num=num/10;
+        
+        }
+        System.out.println(sum);
+    }
+    }
+
+       
+YM1024:
+import java.io.*;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if (n % 2 == 0)
+            System.out.println("Behold, an Even Enigma!");
+        else
+            System.out.println("Discover the Odd Symphony!");
+    }
+}
+
+
+YM1034:
+import java.util.Scanner;
+public class AlmostLucky {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int rollNumber = sc.nextInt();
+        sc.close();
+
+        boolean isLucky = true;
+        int temp = rollNumber;
+
+        while (temp > 0) {
+            int digit = temp % 10;
+            if (digit != 4 && digit != 7) {
+                isLucky = false;
+                break;
+            }
+            temp /= 10;
+        }
+        System.out.println(isLucky ? "YES" : "NO");
+    }
+}
+
+
+YM1038:
+import java.util.Scanner;
+public class WizardDuel {
+      public static int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }
+     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int gPower = scanner.nextInt();
+        int mPower = scanner.nextInt();
+        int totalPower = scanner.nextInt();
+
+        int gScore = 0; 
+        int mScore = 0; 
+        boolean isGokulTurn = true; 
+           while (totalPower > 0) {
+            int currentPower = isGokulTurn ? gPower : mPower;
+            int currentGcd = gcd(currentPower, totalPower);
+
+            if (isGokulTurn) {
+                gScore += currentGcd;
+            } else {
+                mScore += currentGcd;
+            }
+
+            totalPower -= currentGcd;
+            isGokulTurn = !isGokulTurn; 
+        }
+
+        if (gScore > mScore) {
+            System.out.println("Winner: Gokul");
+        } else if (mScore > gScore) {
+            System.out.println("Winner: Minor");
+        } else {
+            System.out.println("It's a draw!");
+        }
+
+        scanner.close();
+    }
+}
+
+
+YM1028:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int x = sc.nextInt(); 
+        int y = sc.nextInt(); 
+        double s = sc.nextDouble(); 
+        double r = sc.nextDouble(); 
+        double l = sc.nextDouble(); 
+
+        if (s > r || (2 * s) < r) {
+            System.out.println("Invalid Input");
+            return;
+        }
+
+        double comboCost = (x * s) + (y * r);
+
+        if (comboCost > l) {
+            System.out.println("Monthly Pass");
+        } else {
+            System.out.println("Solo Trail + Roundabout Ride");
+        }
+
+        sc.close();
+    }
+}
+
+
+YM1022:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+        double midX = (x1 + x2) / 2.0;
+        double midY = (y1 + y2) / 2.0;
+        System.out.println("Max's house is located at (" + midX + ", " + midY + ")");
+        sc.close();
+    }
+}
+
+
+YM1023:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int breadth = sc.nextInt();
+
+        int ropeLength = 2 * (length + breadth);
+        int carpetQuantity = length * breadth;  
+
+        System.out.println("Rope Length: " + ropeLength + "m");
+        System.out.println("Carpet Quantity: " + carpetQuantity + "sqm");
+        sc.close();
+    }
+}
+
+
+YM1032:
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String signal = sc.nextLine().toLowerCase(); 
+
+        if (signal.equals("red")) {
+            System.out.println("Stop");
+        } else if (signal.equals("yellow")) {
+            System.out.println("Get Ready");
+        } else if (signal.equals("green")) {
+            System.out.println("Go");
+        } else {
+            System.out.println("Invalid Input");
+        }
+
+        sc.close();
+    }
+}
+
+
+YM1035:
+import java.util.Scanner;
+public class MagicalPositions {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        sc.close();
+        int possible = n - a - b;
+        if (possible < 0) possible = 0;
+        System.out.println(possible);
+    }
+}
+
+
+
+
+Y
